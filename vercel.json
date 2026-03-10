@@ -1,5 +1,9 @@
 {
   "version": 2,
+  "framework": "vite",
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "installCommand": "cd backend && npm install",
   "builds": [
     {
       "src": "backend/server.js",
@@ -16,16 +20,14 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/server.js",
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization"
-      }
+      "dest": "backend/server.js"
+    },
+    {
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "frontend/$1"
+      "dest": "/index.html"
     }
   ]
 }
