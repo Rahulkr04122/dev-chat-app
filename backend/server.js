@@ -32,11 +32,7 @@ const io = new Server(server, {
 // ─── Middleware ───────────────────────────────
 // ─── Middleware ───────────────────────────────
 app.use(cors({
-  origin: [
-    "https://dev-chat-app-sepia.vercel.app",
-    "https://dev-chat-app-git-main-rahulkr04122-9055s-projects.vercel.app",
-    "http://localhost:5173"
-  ],
+  origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
