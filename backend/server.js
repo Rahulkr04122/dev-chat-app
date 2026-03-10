@@ -30,7 +30,16 @@ const io = new Server(server, {
 });
 
 // ─── Middleware ───────────────────────────────
-app.use(cors({ origin: process.env.CLIENT_URL }));
+// ─── Middleware ───────────────────────────────
+app.use(cors({
+  origin: [
+    "https://dev-chat-app-sepia.vercel.app",
+    "https://dev-chat-app-git-main-rahulkr04122-9055s-projects.vercel.app",
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 // ─── Routes ───────────────────────────────────
